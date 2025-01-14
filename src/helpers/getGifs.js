@@ -4,13 +4,12 @@ const getGifs = async (category) => {
   const respo = await fetch(url);
   const { data = [] } = await respo.json();
 
-  const gifs = data.map(img => ({
+  const gifs = data.map((img) => ({
     id: img.id,
     title: img.title,
     url: img.images.downsized_medium.url,
   }));
 
-  console.log(gifs);
   return gifs;
 }
 
