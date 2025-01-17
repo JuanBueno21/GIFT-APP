@@ -6,15 +6,15 @@ const useFetchGifs = (category) => {
   const [images, setImages] = useState([]);
   const [loading, setIsLoading] = useState([]);
 
-  const getImages = async () => {
-    const newImages = await getGifs(category);
-    setImages(newImages);
-    setIsLoading(false);
-  }
-
   useEffect(() => {
+    const getImages = async () => {
+      const newImages = await getGifs(category);
+      setImages(newImages);
+      setIsLoading(false);
+    };
+
     getImages();
-  }, []);
+  }, [category]);
 
   return ({
     images,
@@ -23,4 +23,4 @@ const useFetchGifs = (category) => {
   )
 }
 
-export default useFetchGifs
+export default useFetchGifs;
